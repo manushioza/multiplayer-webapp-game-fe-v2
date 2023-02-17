@@ -1,81 +1,69 @@
 //Import modules
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "../requests";
 import "bootstrap/dist/css/bootstrap.css";
+import { login } from "../requests";
 import "../Styles/Login.css";
+import { HOME_ROUTE, SIGN_UP_ROUTE } from "../Constants/routes";
 
 function Login() {
-  const username_ref = useRef(null);
-  const password_ref = useRef(null);
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+  const navigate = useNavigate();
+  
+  const loginUser = async () => {
+    try {
+      await login(username, password);
+      alert('Found the user');
+      //go to home page
+      navigate(HOME_ROUTE);
+    } catch (error) {
+      console.log("error", error)
+      alert("Cannot login, please try again.");
+    }
+  };
 
-  let navigate = useNavigate();
-  //for login -> redirect to home
-  const login_route = async () => {
-    await login({ username_ref }, { password_ref }).then((response) => {
-      let path = ``;
-      console.log(response);
-      if (response.data.length == 0) {
-        alert("Invaild credentials, please try again.");
-      } else {
-        //TODO - FILL IN NEXT STEPS
-      }
-    });
-  };
-  //for signup -> redire to signup
-  const signup_route = () => {
-    let path = `/signup`;
-    navigate(path);
-  };
   return (
-    <div>
-      <div>
-        <form class="login">
-          <h1 class="display-3">Welcome!</h1>
-          <div class="mb-3">
-            <label for="username" class="form-label">
-              Username
-            </label>
-            <input
-              type="username"
-              class="form-control"
-              id="username"
-              ref={username_ref}
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">
-              Password
-            </label>
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              ref={password_ref}
-              required
-            />
-          </div>
-          <div class="btn-toolbar d-flex justify-content-center">
-            <button
-              type="button"
-              class="btn btn-dark m-2 col-1"
-              onClick={login_route}
-            >
-              Login
-            </button>
+    <form class="login">
+      <h1 class="display-3">Welcome!</h1>
+      <label for="username" class="form-label">
+          Username
+        </label>
+        <input
+          type="username"
+          class="form-control mb-3"
+          id="username"
+          onChange={e => setUsername(e.target.value)}
+          required
+        />
+      <label for="password" class="form-label">
+        Password
+      </label>
+      <input
+        type="password"
+        class="form-control mb-3"
+        id="password"
+        onChange={e => setPassword(e.target.value)}
+        required
+      />
+      <div class="btn-toolbar d-flex justify-content-center">
+        <button
+          type="button"
+          class="btn btn-dark m-2 col-1"
+          onClick={loginUser}
+        >
+          Login
+        </button>
 
-            <button
-              type="button"
-              class="btn btn-outline-dark m-2 col-2"
-              onClick={signup_route}
-            >
-              Sign Up
-            </button>
-          </div>
-        </form>
+        <button
+          type="button"
+          class="btn btn-outline-dark m-2 col-2"
+          onClick={() => navigate(SIGN_UP_ROUTE)}
+        >
+          Sign Up
+        </button>
       </div>
-    </div>
+    </form>
   );
 }
 
