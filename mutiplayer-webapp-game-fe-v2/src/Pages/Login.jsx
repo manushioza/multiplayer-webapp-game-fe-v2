@@ -4,16 +4,16 @@ import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import { login } from "../requests";
 import "../Styles/Login.css";
-import { HOME_ROUTE, SIGN_UP_ROUTE } from "../Constants/routes";
+import { HOME_ROUTE, REGISTER_ROUTE } from "../Constants/routes";
 
 function Login() {
-  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
   
   const loginUser = async () => {
     try {
-      await login(username, password);
+      await login(email, password);
       alert('Found the user');
       //go to home page
       navigate(HOME_ROUTE);
@@ -26,14 +26,14 @@ function Login() {
   return (
     <form class="login">
       <h1 class="display-3">Welcome!</h1>
-      <label for="username" class="form-label">
-          Username
+      <label for="email" class="form-label">
+          Email
         </label>
         <input
-          type="username"
+          type="email"
           class="form-control mb-3"
-          id="username"
-          onChange={e => setUsername(e.target.value)}
+          id="email"
+          onChange={e => setEmail(e.target.value)}
           required
         />
       <label for="password" class="form-label">
@@ -58,7 +58,7 @@ function Login() {
         <button
           type="button"
           class="btn btn-outline-dark m-2 col-2"
-          onClick={() => navigate(SIGN_UP_ROUTE)}
+          onClick={() => navigate(REGISTER_ROUTE)}
         >
           Sign Up
         </button>
