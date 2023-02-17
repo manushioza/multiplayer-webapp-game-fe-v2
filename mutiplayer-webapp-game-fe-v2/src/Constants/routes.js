@@ -1,2 +1,2 @@
-export const SIGN_UP_ROUTE = '/signup';
+export const REGISTER_ROUTE = '/register';
 export const HOME_ROUTE = '/home';
