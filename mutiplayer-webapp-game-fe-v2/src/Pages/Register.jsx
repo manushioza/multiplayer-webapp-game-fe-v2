@@ -26,7 +26,8 @@ function Register() {
 
   return (
     <form class="login">
-      <h1 class="display-3">Sign up!</h1>
+      <div class="login--gutters">
+      <h1 class="title-text mb-5">Sign up!</h1>
       <label for="email" class="form-label">
         Email
         </label>
@@ -34,6 +35,7 @@ function Register() {
           type="email"
           class="form-control mb-3"
           id="email"
+          placeholder="Enter your email address"
           onChange={e => setEmail(e.target.value)}
           required
         />
@@ -44,6 +46,7 @@ function Register() {
             type="username"
             class="form-control mb-3"
             id="username"
+            placeholder="Enter your username"
             onChange={e => setUsername(e.target.value)}
             required
         />
@@ -54,16 +57,18 @@ function Register() {
         type="password"
         class="form-control mb-3"
         id="password"
+        placeholder="Enter your password"
         onChange={e => setPassword(e.target.value)}
         required
       />
         <button
           type="button"
-          class="btn btn-outline-dark justify-content-center"
+          class="btn login--buttons"
           onClick={registerUser}
         >
           Sign Up
         </button>
+      </div>
     </form>
   );
 }
