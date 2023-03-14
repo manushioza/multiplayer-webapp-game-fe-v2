@@ -6,7 +6,8 @@ import Register from "./Pages/Register"
 import MainStory1 from './Pages/MainStory1';
 import MainStory2 from './Pages/MainStory2';
 import CreateGame from './Pages/CreateGame';
-import { MAINSTORY1_ROUTE, REGISTER_ROUTE, MAINSTORY2_ROUTE, CREATEGAME_ROUTE } from "./Constants/routes";
+import CardGame from './Pages/CardGame'
+import { MAINSTORY1_ROUTE, REGISTER_ROUTE, MAINSTORY2_ROUTE, CREATEGAME_ROUTE, CARDGAME_ROUTE  } from "./Constants/routes";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path={MAINSTORY1_ROUTE} element={<MainStory1 />} />
           <Route path={MAINSTORY2_ROUTE} element={<MainStory2 />} />
           <Route path={CREATEGAME_ROUTE} element={<CreateGame />} />
+          <Route path={CARDGAME_ROUTE} element={<CardGame />} />
     </Routes>
   </BrowserRouter>
   );
