@@ -3,6 +3,9 @@ import {BrowserRouter, Routes, Route,} from "react-router-dom";
 import "./App.css";
 import Login from "./Pages/Login"
 import Register from "./Pages/Register"
+import ShapeSort from "./ShapeSort/ShapeSort"
+import JigsawPuzzle from "./ShapeSort/Jigsaw"
+import FlipCard from "./CardGame/FlipCard"
 
 function App() {
   return (
@@ -10,6 +13,8 @@ function App() {
     <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/ShapeSort" element={<JigsawPuzzle />} />
+          <Route path="/CardGame" element={<FlipCard />} />
     </Routes>
   </BrowserRouter>
   );
