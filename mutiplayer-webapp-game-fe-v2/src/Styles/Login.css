@@ -1,7 +1,86 @@
+/* import the typeface-bungee CSS file */
+@import url('typeface-bungee/index.css');
+@import url('typeface-changa/index.css');
+
+/* define the font family for elements */
+body {
+    font-family: 'changa', sans-serif;
+    color:#FFC700;
+  }
+
+.display-3{
+font-family: 'Bungee', sans-serif;
+color:#FFC700;
+text-align: center;
+}
+.title-text{
+  font-family: 'Bungee', sans-serif;
+  color:#FFC700;
+  text-align: center;
+  font-size: 4em;
+  padding: 0.5em;
+  }
+
 .login{
-    width: 100%;
-    padding-left: 25%;
-    padding-right: 25%;
-    padding-top: 18%;
-    padding-bottom: 25%;
+  width: 100%;
+  position: fixed;
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-image: url(../DesignAssets/mainbackground.svg);
+}
+
+.login--labels {
+  font-size: 20px;
+}
+
+.login--buttons {
+  font-size: 20px;
+  background-color: #2293D7;
+  border: none;
+  font-family: 'Bungee', sans-serif;
+  margin: 0.5em;
+}
+
+
+.login--gutters{
+  margin-right: 30%;
+  margin-left: 30%;
+  margin-top:10%;
+}
+
+.mainstory1 {
+  padding-block-start: 10%;
+  padding-block-end: 10%;
+  padding-inline-start: 30%;
+  padding-inline-end: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.mainstory1--background-img{
+  width: 100%;
+  position: fixed;
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-image: url(../DesignAssets/storyline1a.svg);
+} 
+
+.mainstory2--background-img{
+  width: 100%;
+  position: fixed;
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-image: url(../DesignAssets/storyline1b.svg);
+} 
+
+.mainstory1-btn--continue{
+  background-color: transparent;
+  color: #00E6B5 ;
+  font-size: 2em;
+
 }
