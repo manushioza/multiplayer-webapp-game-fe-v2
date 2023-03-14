@@ -2,7 +2,7 @@
 import axios from "axios";
 
 //set URL variable
-const BASE_URL = "http://localhost:3030";
+const BASE_URL = "https://multiplayer-game-backend.herokuapp.com";
 
 /** AUTH CALLS */
 
