@@ -29,4 +29,13 @@ async function register(email, password, username) {
   return response;
 }
 
-export { login, register };
+//REGISTER FUNCTION
+async function addSession(username) {
+  console.log("Attempting to register....");
+  const response = await axios.post(`${BASE_URL}/session/add`, {
+    username,
+  });
+  return response
+}
+
+export { login, register, addSession };

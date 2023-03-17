@@ -8,26 +8,10 @@ import {
   HOME_ROUTE,
   REGISTER_ROUTE,
   MAINSTORY1_ROUTE,
-  CREATEGAME_ROUTE,
+  MODE_ROUTE,
 } from "../Constants/routes";
-const io = require("socket.io-client");
-
-// const socket = io("https://multiplayer-game-backend.herokuapp.com", {
-//   withCredentials: true,
-//   extraHeaders: {
-//     "Access-Control-Allow-Origin": "true"
-//   }
-// });
-const socket = io("http://localhost:8000", {
-  withCredentials: true,
-});
 
 function Login() {
-  // client-side
-  socket.on("connect", () => {
-    console.log(socket.id);
-  });
-
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [username, setUsername] = useState();
@@ -35,17 +19,13 @@ function Login() {
 
   const loginUser = async () => {
     try {
-      if (socket.connected) {
-        socket.emit(email, password);
-        console.log("Emitting email, password");
-      } else {
-        console.log("Unable to emit to socket");
-      }
+
       var res = await login(email, password);
       if (!res) {
         console.log("Unable to log user in.");
       } else {
-        navigate(CREATEGAME_ROUTE, { username });
+        sessionStorage.setItem("username", username);
+        navigate(MODE_ROUTE, { username });
       }
     } catch (error) {
       console.log("error", error);
