@@ -9,13 +9,15 @@ import shield from "./img/shield.png"
 import sword from "./img/sword.png"
 
 
+// const cardImg 
+
 const cardImg = [
-  { src: {helmet}, matched: false },
-  { src: {potion}, matched: false },
-  { src: {ring}, matched: false },
-  { src: {scroll}, matched: false },
-  { src: {shield}, matched: false },
-  { src: {sword}, matched: false },
+  { src: helmet, matched: false },
+  { src: potion, matched: false },
+  { src: ring, matched: false },
+  { src: scroll, matched: false },
+  { src: shield, matched: false },
+  { src: sword, matched: false },
 ];
 
 function FlipCard() {
