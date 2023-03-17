@@ -3,10 +3,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "../Styles/Login.css";
-import { HOME_ROUTE, REGISTER_ROUTE, MAINSTORY1_ROUTE } from "../Constants/routes";
+import { SHAPESORT_ROUTE } from "../Constants/routes";
 
 function MainStory2() {
-   // const navigate = useNavigate();
+   const navigate = useNavigate();
  
    return (
       
@@ -15,7 +15,9 @@ function MainStory2() {
        <h1>IT'S TIME TO WAKE UP!</h1>
        <button
           type="button"
-          class="btn mainstory1-btn--continue"
+          class="btn jigsaw-btn--continue"
+          //THIS WILL BE CHANGED TO DIFFERENT GAME
+          onClick={() => navigate(SHAPESORT_ROUTE)}
          //  onClick={loginUser}
         >
           Click 10 times to wake up...
