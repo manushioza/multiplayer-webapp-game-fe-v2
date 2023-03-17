@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { useNavigate } from "react-router-dom";
 import Ship from "./ship";
 import Star from "./star";
 import "../Styles/game1.css";
-
+import { GAME2_ROUTE } from "../Constants/routes";
 
 const getRandomStar = () => {
   let min = 1;
@@ -230,7 +231,10 @@ class game1 extends Component {
             <div className="game1-over">
               <h2>Game Over</h2>
               <p>Your score was {score}!</p>
-              <button onClick={() => window.location.reload()}>Play Again</button>
+              <button onClick={event =>  window.location.href=GAME2_ROUTE}>
+                Continue
+                </button>
+
             </div>
             )}
             </div>
