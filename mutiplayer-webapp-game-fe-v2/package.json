@@ -17,6 +17,8 @@
     "react-jigsaw-puzzle": "^1.0.4",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
+    "typeface-bungee": "^1.1.13",
+    "typeface-changa": "^1.1.13",
     "sass": "^1.59.3",
     "web-vitals": "^2.1.4"
   },
