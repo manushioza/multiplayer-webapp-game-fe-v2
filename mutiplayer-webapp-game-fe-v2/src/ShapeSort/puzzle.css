@@ -21,7 +21,6 @@
     background-color: transparent;
     color: #00E6B5 ;
     font-size: 2em;
-    position: absolute;
     justify-content: center; /* add this line to center horizontally */
 
   }

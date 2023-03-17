@@ -15,7 +15,7 @@ function MainStory2() {
        <h1>IT'S TIME TO WAKE UP!</h1>
        <button
           type="button"
-          class="btn jigsaw-btn--continue"
+          class="btn mainstory1-btn--continue"
           //THIS WILL BE CHANGED TO DIFFERENT GAME
           onClick={() => navigate(SHAPESORT_ROUTE)}
          //  onClick={loginUser}
