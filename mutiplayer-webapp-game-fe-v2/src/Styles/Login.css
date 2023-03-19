@@ -21,6 +21,14 @@ text-align: center;
   padding: 0.5em;
   }
 
+  .sub-text{
+    font-family: 'Bungee', sans-serif;
+    color:#FFFFFF;
+    text-align: center;
+    font-size: 2em;
+    padding: 0.5em;
+    }
+
 .login{
   width: 100%;
   position: fixed;
