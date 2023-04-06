@@ -23,7 +23,7 @@ const cardImg = [
 function FlipCard() {
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
-  var partner_score = 0;
+  const [partnerTurns, setPartnerTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
@@ -46,7 +46,7 @@ function FlipCard() {
   };
 
   //compare selected cards
-  useEffect( () => {
+  useEffect(() => {
     if (choiceOne && choiceTwo) {
       setDisabled(true);
       if (choiceOne.src === choiceTwo.src) {
@@ -75,7 +75,12 @@ function FlipCard() {
     setChoiceTwo(null);
     setTurns((prevTurns) => prevTurns + 1);
     setDisabled(false);
-    emit_score_game3(sessionStorage.getItem("playerID"), turns);
+    try {
+      emit_score_game3(sessionStorage.getItem("playerID"), turns+1);
+      get_score()
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   //start new game
@@ -92,13 +97,11 @@ function FlipCard() {
     } else {
       s = await get_score_game3(1);
     }
-
-    try {
-      partner_score = s;
-    } catch (err) {
-      console.log(err);
-    }
+    setPartnerTurns((s) => s + 1);
+  
   };
+
+   
 
   return (
     <div classname="background">
@@ -119,7 +122,7 @@ function FlipCard() {
         </div>
 
         <p>Turns: {turns}</p>
-        <p>Partner's Turns: {get_score}</p>
+        <p>Partner's Turns: {partnerTurns}</p>
       </div>
     </div>
   );
