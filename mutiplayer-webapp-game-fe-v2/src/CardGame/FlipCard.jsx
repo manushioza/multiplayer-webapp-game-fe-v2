@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./FlipCard.css";
 import SingleCard from "./components/SingleCard";
-import helmet from "./img/helmet.png"
-import potion from "./img/potion.png"
-import ring from "./img/ring.png"
-import scroll from "./img/scroll.png"
-import shield from "./img/shield.png"
-import sword from "./img/sword.png"
+import helmet from "./img/helmet.png";
+import potion from "./img/potion.png";
+import ring from "./img/ring.png";
+import scroll from "./img/scroll.png";
+import shield from "./img/shield.png";
+import sword from "./img/sword.png";
+import { emit_score_game3, get_score_game3 } from "../Socket/ClientManager";
 
-
-// const cardImg 
+// const cardImg
 
 const cardImg = [
   { src: helmet, matched: false },
@@ -23,6 +23,7 @@ const cardImg = [
 function FlipCard() {
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
+  const [partnerTurns, setPartnerTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
@@ -64,6 +65,8 @@ function FlipCard() {
         setTimeout(() => resetTurn(), 500);
       }
     }
+
+    //Once partner score obtained, set the state of the partner score
   }, [choiceOne, choiceTwo]);
 
   //reset choice
@@ -72,6 +75,12 @@ function FlipCard() {
     setChoiceTwo(null);
     setTurns((prevTurns) => prevTurns + 1);
     setDisabled(false);
+    try {
+      emit_score_game3(sessionStorage.getItem("playerID"), turns+1);
+      get_score()
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   //start new game
@@ -79,9 +88,23 @@ function FlipCard() {
     shuffleCards();
   }, []);
 
+  const get_score = async () => {
+    var s = 0;
+    //If player 1, get partner score == score of player 2
+    if (sessionStorage.getItem("playerID") == 1) {
+      s = await get_score_game3(2);
+      //If player 2, get partner score == score of player 1
+    } else {
+      s = await get_score_game3(1);
+    }
+    setPartnerTurns((s) => s + 1);
+  
+  };
+
+   
+
   return (
-    <div classname="background"> 
-      
+    <div classname="background">
       <div className="FlipCard">
         <h1>Magic Memory Game</h1>
         <button onClick={shuffleCards}>New Game</button>
@@ -99,6 +122,7 @@ function FlipCard() {
         </div>
 
         <p>Turns: {turns}</p>
+        <p>Partner's Turns: {partnerTurns}</p>
       </div>
     </div>
   );

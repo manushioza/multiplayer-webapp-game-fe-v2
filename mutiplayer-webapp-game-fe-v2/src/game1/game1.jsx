@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 import Ship from "./ship";
 import Star from "./star";
 import "../Styles/game1.css";
-import { emit_score, get_score } from "../Socket/ClientManager";
-var partnerScore = 0;
+import { emit_score_game1, get_score_game1 } from "../Socket/ClientManager";
 import { GAME2_ROUTE } from "../Constants/routes";
+
+var partner_score = 0;
 
 const getRandomStar = () => {
   let min = 1;
@@ -37,6 +38,7 @@ class game1 extends Component {
 
   componentDidMount() {
     setInterval(this.moveShip, this.state.speed);
+    setInterval(this.getScores, 5000);
     document.onkeydown = this.onKeyDown;
 
     // start the timer countdown
@@ -84,23 +86,30 @@ class game1 extends Component {
         break;
     }
   };
-
-  moveShip = () => {
-    console.log(
-      "p1 score: " + get_score(2) + "\n" + "p2 score: " + get_score(1)
-    );
-    var score = 0;
+  getScores = async () => {
+    var s = 0;
+    //If player 1, get partner score == score of player 2
     if (sessionStorage.getItem("playerID") == 1) {
-      score = get_score(2);
-      this.setState({
-        partnerScore: score,
-      });
+      s = await get_score_game1(2);
+      //If player 2, get partner score == score of player 1
     } else {
-      score = get_score(1);
+      s = await get_score_game1(1)
+    }
+  
+    try{
+      console.log(s)
       this.setState({
-        partnerScore: score,
+        partnerScore:  s,
       });
     }
+    catch(err){
+      console.log(err);
+    }
+    console.log("partner score: " +  s);
+    //Once partner score obtained, set the state of the partner score
+  };
+
+  moveShip = () => {
     let dots = [...this.state.shipDots];
     let head = dots[dots.length - 1];
     if (this.state.route === "game") {
@@ -161,7 +170,7 @@ class game1 extends Component {
         score: this.state.score + 10, // increment score
       });
       this.increaseSpeed();
-      emit_score(sessionStorage.getItem("playerID"), this.state.score + 10);
+      emit_score_game1(sessionStorage.getItem("playerID"), this.state.score + 10);
     }
   }
 
@@ -258,7 +267,9 @@ class game1 extends Component {
           <div className="game1-over">
             <h2>Game Over</h2>
             <p>Your score was {score}!</p>
-            <button onClick={(event) =>  window.location.href=GAME2_ROUTE}>Play Again</button>
+            <button onClick={(event) => (window.location.href = GAME2_ROUTE)}>
+              Play Again
+            </button>
           </div>
         )}
       </div>
