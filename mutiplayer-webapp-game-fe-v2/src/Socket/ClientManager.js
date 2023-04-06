@@ -19,25 +19,89 @@ const join = (session_id, player_id) => {
   console.log("Joined room...");
 };
 
-const emit_score = (player_id, score) => {
-  socket.emit("score", { player_id, score });
+const emit_score_game1 = (player_id, score) => {
+  socket.emit("scoreGame1", { player_id, score });
 };
 
-const get_score = (player_id) => {
-  
+const get_score_game1 = (player_id) => {
   console.log("Attempting to get scores for: " + player_id);
-  socket.on("sendScores", (arg) => {
-    var score = 0;
-    console.log(arg);
-    if (player_id == 1) {
-      score = arg.player1;
-    } else {
-      score = arg.player2;
-    }
-    console.log(score)
-  return score;
+
+  return new Promise(function (resolve, reject) {
+    socket.on("sendScoresGame1", (arg) => {
+      var score = 0;
+      console.log(arg);
+      if (player_id == 1) {
+        score = arg.player1;
+      } else {
+        score = arg.player2;
+      }
+      resolve(score);
+    });
   });
-  
 };
 
-module.exports = { inititaize, join, emit_score, get_score, socket };
+const emit_score_game2 = (player_id, score) => {
+  socket.emit("scoreGame2", { player_id, score });
+};
+
+const get_score_game2 = (player_id) => {
+  console.log("Attempting to get scores for: " + player_id);
+
+  return new Promise(function (resolve, reject) {
+    socket.on("sendScoresGame2", (arg) => {
+      var score = 0;
+      console.log(arg);
+      if (player_id == 1) {
+        score = arg.player1;
+      } else {
+        score = arg.player2;
+      }
+      resolve(score);
+    });
+  });
+};
+
+const emit_score_game3 = (player_id, score) => {
+  socket.emit("scoreGame3", { player_id, score });
+};
+
+const get_score_game3 = (player_id) => {
+  console.log("Attempting to get scores for: " + player_id);
+
+  return new Promise(function (resolve, reject) {
+    socket.on("sendScoresGame3", (arg) => {
+      var score = 0;
+      console.log(arg);
+      if (player_id == 1) {
+        score = arg.player1;
+      } else {
+        score = arg.player2;
+      }
+      resolve(score);
+    });
+  });
+};
+
+const emit_score_game4 = (player_id, score) => {
+  socket.emit("scoreGame4", { player_id, score });
+};
+
+const get_score_game4 = (player_id) => {
+  console.log("Attempting to get scores for: " + player_id);
+
+  return new Promise(function (resolve, reject) {
+    socket.on("sendScoresGame4", (arg) => {
+      var score = 0;
+      console.log(arg);
+      if (player_id == 1) {
+        score = arg.player1;
+      } else {
+        score = arg.player2;
+      }
+      resolve(score);
+    });
+  });
+};
+
+
+module.exports = { inititaize, join, emit_score_game1, get_score_game1, emit_score_game2, get_score_game2, emit_score_game3, get_score_game3, emit_score_game4, get_score_game4, socket };

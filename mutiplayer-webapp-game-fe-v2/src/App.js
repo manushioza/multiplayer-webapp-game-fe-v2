@@ -14,9 +14,7 @@ import JigsawPuzzle from "./ShapeSort/Jigsaw"
 import FlipCard from "./CardGame/FlipCard"
 
 function App() {
-  sessionStorage.clear();
   return (
-    
     <BrowserRouter>
     <Routes>
           <Route path="/" element={<Login />} />

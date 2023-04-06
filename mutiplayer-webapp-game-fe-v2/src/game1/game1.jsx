@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Ship from "./ship";
 import Star from "./star";
 import "../Styles/game1.css";
-import { emit_score, socket } from "../Socket/ClientManager";
+import { emit_score_game1, get_score_game1 } from "../Socket/ClientManager";
 import { GAME2_ROUTE } from "../Constants/routes";
 
 var partner_score = 0;
@@ -86,26 +86,27 @@ class game1 extends Component {
         break;
     }
   };
-  getScores = () => {
-    var score = 0;
-    console.log(
-      "Attempting to get scores for: " + sessionStorage.getItem("playerID")
-    );
-    socket.on("sendScores", (arg) => {
-      console.log(arg);
-      if (sessionStorage.getItem("playerID") == 1) {
-        score = arg.player1;
-      } else {
-        score = arg.player2;
-      }
-      try {
-        this.setState({
-          partnerScore: score,
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    });
+  getScores = async () => {
+    var s = 0;
+    //If player 1, get partner score == score of player 2
+    if (sessionStorage.getItem("playerID") == 1) {
+      s = await get_score_game1(2);
+      //If player 2, get partner score == score of player 1
+    } else {
+      s = await get_score_game1(1)
+    }
+  
+    try{
+      console.log(s)
+      this.setState({
+        partnerScore:  s,
+      });
+    }
+    catch(err){
+      console.log(err);
+    }
+    console.log("partner score: " +  s);
+    //Once partner score obtained, set the state of the partner score
   };
 
   moveShip = () => {
@@ -169,7 +170,7 @@ class game1 extends Component {
         score: this.state.score + 10, // increment score
       });
       this.increaseSpeed();
-      emit_score(sessionStorage.getItem("playerID"), this.state.score + 10);
+      emit_score_game1(sessionStorage.getItem("playerID"), this.state.score + 10);
     }
   }
 
@@ -275,4 +276,4 @@ class game1 extends Component {
     );
   }
 }
-export default { game1, partner_score };
+export default game1;
