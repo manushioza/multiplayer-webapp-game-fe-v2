@@ -7,17 +7,16 @@ import Game1 from "./game1/game1";
 import Game2 from "./game2/game2";
 import MainStory1 from './Pages/MainStory1';
 import MainStory2 from './Pages/MainStory2';
-import Mode from './Pages/Mode';
 import CardGame from './Pages/CardGame'
-import { MAINSTORY1_ROUTE, REGISTER_ROUTE, MAINSTORY2_ROUTE, CARDGAME_ROUTE, MULTIPLAYER_ROUTE, MODE_ROUTE  } from "./Constants/routes";
+import { MAINSTORY1_ROUTE, REGISTER_ROUTE, MAINSTORY2_ROUTE, CARDGAME_ROUTE, MULTIPLAYER_ROUTE, SHAPESORT_ROUTE, CREATEGAME_ROUTE, GAME1_ROUTE, GAME2_ROUTE   } from "./Constants/routes";
 import Multiplayer from "./Pages/Multiplayer";
-import CreateGame from './Pages/CreateGame';
 import JigsawPuzzle from "./ShapeSort/Jigsaw"
 import FlipCard from "./CardGame/FlipCard"
-import { MAINSTORY1_ROUTE, REGISTER_ROUTE, MAINSTORY2_ROUTE, CREATEGAME_ROUTE, SHAPESORT_ROUTE, CARDGAME_ROUTE, GAME1_ROUTE, GAME2_ROUTE } from "./Constants/routes";
 
 function App() {
+  sessionStorage.clear();
   return (
+    
     <BrowserRouter>
     <Routes>
           <Route path="/" element={<Login />} />
@@ -28,7 +27,6 @@ function App() {
           <Route path={REGISTER_ROUTE} element={<Register />} />
           <Route path={MAINSTORY1_ROUTE} element={<MainStory1 />} />
           <Route path={MAINSTORY2_ROUTE} element={<MainStory2 />} />
-          <Route path={MODE_ROUTE} element={<Mode />} />
           <Route path={MULTIPLAYER_ROUTE} element={<Multiplayer />} />
           <Route path={CARDGAME_ROUTE} element={<CardGame />} />
     </Routes>

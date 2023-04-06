@@ -8,7 +8,7 @@ import {
   HOME_ROUTE,
   REGISTER_ROUTE,
   MAINSTORY1_ROUTE,
-  MODE_ROUTE,
+  MULTIPLAYER_ROUTE,
 } from "../Constants/routes";
 
 function Login() {
@@ -25,7 +25,7 @@ function Login() {
         console.log("Unable to log user in.");
       } else {
         sessionStorage.setItem("username", username);
-        navigate(MODE_ROUTE, { username });
+        navigate(MULTIPLAYER_ROUTE, { username });
       }
     } catch (error) {
       console.log("error", error);
