@@ -20,7 +20,7 @@ function MainStory2() {
           onClick={() => navigate(SHAPESORT_ROUTE)}
          //  onClick={loginUser}
         >
-          Click 10 times to wake up...
+          Click to wake up...
         </button>
      </div>
    );

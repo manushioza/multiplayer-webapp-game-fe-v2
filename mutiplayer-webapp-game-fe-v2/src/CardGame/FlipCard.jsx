@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "./FlipCard.css";
 import SingleCard from "./components/SingleCard";
-import helmet from "./img/helmet.png";
-import potion from "./img/potion.png";
-import ring from "./img/ring.png";
-import scroll from "./img/scroll.png";
-import shield from "./img/shield.png";
-import sword from "./img/sword.png";
+import helmet from "./img/helmet.svg"
+import spaceship from "./img/spaceship.svg"
+import ring from "./img/planet.svg"
+import rover from "./img/rover.svg"
+import alien from "./img/alien.svg"
+import sword from "./img/sword.svg"
 import { emit_score_game3, get_score_game3 } from "../Socket/ClientManager";
 
 // const cardImg
 
 const cardImg = [
   { src: helmet, matched: false },
-  { src: potion, matched: false },
+  { src: spaceship, matched: false },
   { src: ring, matched: false },
-  { src: scroll, matched: false },
-  { src: shield, matched: false },
+  { src: rover, matched: false },
+  { src: alien, matched: false },
   { src: sword, matched: false },
 ];
 
@@ -106,8 +106,7 @@ function FlipCard() {
   return (
     <div classname="background">
       <div className="FlipCard">
-        <h1>Magic Memory Game</h1>
-        <button onClick={shuffleCards}>New Game</button>
+        <h1>Memory Game</h1>
 
         <div className="card-grid">
           {cards.map((card) => (

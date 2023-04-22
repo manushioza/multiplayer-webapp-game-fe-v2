@@ -1,6 +1,6 @@
 import React from "react";
 import "./SingleCard.css";
-import cardback from "../img/cover.png"
+import cardback from "../img/cardback.png"
 
 function SingleCard({ card, handleChoice, flipped, disabled }) {
   const handleClick = () => {
