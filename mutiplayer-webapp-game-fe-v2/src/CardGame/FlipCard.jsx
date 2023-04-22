@@ -106,7 +106,7 @@ function FlipCard() {
   return (
     <div classname="background">
       <div className="FlipCard">
-        <h1>Memory Game</h1>
+      <h2 class="title-text mb-5">Train your mind to stay sane. Match the cards.</h2>
 
         <div className="card-grid">
           {cards.map((card) => (

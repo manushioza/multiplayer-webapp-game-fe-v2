@@ -55,11 +55,11 @@ function Game2() {
 
   
   return (
-    <div style={{
-    display:'flex',justifyContent:'center',alignItems:'center',height:'100%',flexDirection:'row'
+    <><h2 class="title-text mb-5">Danger! Asteroids in close proximity. FIGHT TO SURVIVE.</h2><div style={{
+      display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', flexDirection: 'row'
     }}>
-        <canvas ref={canvasRef} width="950" height="550" style={{backgroundImage: `url(${bg})`,backgroundSize:"cover" ,border:'2px solid #000000',marginTop:'48px'}}/>
-    </div>
+      <canvas ref={canvasRef} width="950" height="550" style={{ backgroundImage: `url(${bg})`, backgroundSize: "cover", border: '2px solid #000000', marginTop: '2px' }} />
+    </div></>
   );
 }
 

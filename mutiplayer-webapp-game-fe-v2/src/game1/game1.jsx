@@ -252,6 +252,7 @@ class game1 extends Component {
 
     return (
       <div>
+        <h2 class="title-text mb-5">You need provisions to survive. Collect as many supply crates as you can.</h2>
         <div className="game-area">
           <Ship shipDots={shipDots} />
           <Star dot={star} />

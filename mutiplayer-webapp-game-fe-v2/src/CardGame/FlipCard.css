@@ -29,4 +29,12 @@ background-color:#c23866;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px; }
+
+  .title-text{
+    font-family: 'Bungee', sans-serif;
+    color:#FFC700;
+    text-align: center;
+    font-size: 2em;
+    padding: 0.5em;
+    }
   

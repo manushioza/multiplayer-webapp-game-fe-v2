@@ -1,7 +1,8 @@
 /* for the heading  */
 .tag {
     text-align: center;
-    color: green;
+    font-family: 'Bungee', sans-serif;
+    color: #FFC700;
     margin: 2rem;
 }
   
