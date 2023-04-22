@@ -8,7 +8,7 @@ import { GAME1_ROUTE } from "../Constants/routes";
   
 function Jigsaw() {
     const navigate = useNavigate();
-    const [text, setText] = useState("Unpuzzle the pieces!!");
+    const [text, setText] = useState("Unpuzzle the pieces to unlock your breakfast");
     const [showButton, setShowButton] = useState(false); 
       
     const set = () => {
