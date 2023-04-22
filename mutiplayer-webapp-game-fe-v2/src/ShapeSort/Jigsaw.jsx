@@ -19,23 +19,26 @@ function Jigsaw() {
     return (
         <>
             <h2 className="tag">{text}</h2>
-            <JigsawPuzzle
-                imageSrc={img}
-                rows={2}
-                columns={2}
-                onSolved={set}
-                className="jigsaw-puzzle"
-            />
-            {showButton  && (
-                 <button
-                 type="button"
-                 className="btn jigsaw-btn--continue"
-                 onClick={() => navigate(GAME1_ROUTE)}
-               >
-                 Continue
-               </button>
-            )     
-            }    
+            <div className="jigsaw-puzzle">
+                <JigsawPuzzle
+                    imageSrc={img}
+                    rows={3}
+                    columns={3}
+                    onSolved={set}
+                    className="jigsaw-puzzle-inner"
+                />
+                {showButton && (
+                    <div className="button-container">
+                        <button
+                            type="button"
+                            className="btn jigsaw-btn--continue"
+                            onClick={() => navigate(GAME1_ROUTE)}
+                        >
+                            Continue
+                        </button>
+                    </div>
+                )}
+            </div>
         </>
     );
 }
