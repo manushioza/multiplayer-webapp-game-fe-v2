@@ -8,6 +8,7 @@ import rover from "./img/rover.svg"
 import alien from "./img/alien.svg"
 import sword from "./img/sword.svg"
 import { emit_score_game3, get_score_game3 } from "../Socket/ClientManager";
+import { SHAPESORT_ROUTE } from "../Constants/routes";
 
 // const cardImg
 
@@ -27,6 +28,10 @@ function FlipCard() {
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
+  var matched_pairs = 0;
+  var max_pairs = 6;
+
+
 
   //shuffle
   const shuffleCards = () => {
@@ -50,6 +55,7 @@ function FlipCard() {
     if (choiceOne && choiceTwo) {
       setDisabled(true);
       if (choiceOne.src === choiceTwo.src) {
+        matched_pairs += 1;
         setCards((prevCards) => {
           return prevCards.map((card) => {
             if (card.src === choiceOne.src) {
@@ -104,6 +110,7 @@ function FlipCard() {
   
   };
 
+
    
 
   return (
@@ -125,6 +132,17 @@ function FlipCard() {
 
         <p>Turns: {turns}</p>
         <p>Partner's Turns: {partnerTurns}</p>
+        {max_pairs == matched_pairs && (
+                    <div className="button-container">
+                        <button
+                            type="button"
+                            className="btn jigsaw-btn--continue"
+                            onClick={() => navigate(SHAPESORT_ROUTE)}
+                        >
+                            Continue
+                        </button>
+                    </div>
+                )}
       </div>
     </div>
   );
