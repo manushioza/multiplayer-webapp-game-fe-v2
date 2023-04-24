@@ -1,5 +1,5 @@
 const io = require("socket.io-client");
-var URL = "https://capstone-socketio.herokuapp.com/";
+var URL = "https://capstone-socketio.herokuapp.com";
 var room_id = 0;
 
 const socket = io(URL, {
