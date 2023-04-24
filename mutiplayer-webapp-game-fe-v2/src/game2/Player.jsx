@@ -26,6 +26,9 @@ export class Player {
   increaseScore = () => {
     this.score += 10;
     try{
+      var prev_score = sessionStorage.getItem("scores")
+      var new_score = parseInt(prev_score) + parseInt(this.score)
+      sessionStorage.setItem("scores", parseInt(new_score))
       emit_score_game2(sessionStorage.getItem("playerID"), this.score)
     }
     catch(err){

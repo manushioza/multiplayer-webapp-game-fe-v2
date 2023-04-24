@@ -97,6 +97,9 @@ function FlipCard() {
     } else {
       s = await get_score_game3(1);
     }
+    var prev_score = sessionStorage.getItem("scores")
+    var new_score = parseInt(prev_score) - parseInt((s+1)*5)
+    sessionStorage.setItem("scores", parseInt(new_score))
     setPartnerTurns((s) => s + 1);
   
   };

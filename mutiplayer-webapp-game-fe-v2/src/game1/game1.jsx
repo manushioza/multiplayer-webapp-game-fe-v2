@@ -170,6 +170,9 @@ class game1 extends Component {
         score: this.state.score + 10, // increment score
       });
       this.increaseSpeed();
+      var prev_score = sessionStorage.getItem("scores")
+      var new_score = parseInt(prev_score) + parseInt(this.state.score + 10)
+      sessionStorage.setItem("scores", parseInt(new_score))
       emit_score_game1(sessionStorage.getItem("playerID"), this.state.score + 10);
     }
   }

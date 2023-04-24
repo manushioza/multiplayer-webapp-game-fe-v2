@@ -25,6 +25,7 @@ function Login() {
         console.log("Unable to log user in.");
       } else {
         sessionStorage.setItem("username", username);
+        sessionStorage.setItem("scores", 0);
         navigate(MULTIPLAYER_ROUTE, { username });
       }
     } catch (error) {

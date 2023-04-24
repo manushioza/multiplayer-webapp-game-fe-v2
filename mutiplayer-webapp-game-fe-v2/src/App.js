@@ -8,7 +8,8 @@ import Game2 from "./game2/game2";
 import MainStory1 from './Pages/MainStory1';
 import MainStory2 from './Pages/MainStory2';
 import CardGame from './Pages/CardGame'
-import { MAINSTORY1_ROUTE, REGISTER_ROUTE, MAINSTORY2_ROUTE, CARDGAME_ROUTE, MULTIPLAYER_ROUTE, SHAPESORT_ROUTE, CREATEGAME_ROUTE, GAME1_ROUTE, GAME2_ROUTE   } from "./Constants/routes";
+import Scores from './Pages/Scores'
+import { MAINSTORY1_ROUTE, REGISTER_ROUTE, MAINSTORY2_ROUTE, CARDGAME_ROUTE, MULTIPLAYER_ROUTE, SHAPESORT_ROUTE, CREATEGAME_ROUTE, GAME1_ROUTE, GAME2_ROUTE, SCORES_ROUTE   } from "./Constants/routes";
 import Multiplayer from "./Pages/Multiplayer";
 import JigsawPuzzle from "./ShapeSort/Jigsaw"
 import FlipCard from "./CardGame/FlipCard"
@@ -27,6 +28,7 @@ function App() {
           <Route path={MAINSTORY2_ROUTE} element={<MainStory2 />} />
           <Route path={MULTIPLAYER_ROUTE} element={<Multiplayer />} />
           <Route path={CARDGAME_ROUTE} element={<CardGame />} />
+          <Route path={SCORES_ROUTE} element={<Scores />} />
     </Routes>
   </BrowserRouter>
   );
