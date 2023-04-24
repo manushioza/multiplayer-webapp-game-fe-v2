@@ -9,5 +9,6 @@ export const MAINSTORY2_ROUTE = '/mainstory2';
 export const MODE_ROUTE = '/mode';
 export const MULTIPLAYER_ROUTE = '/multiplayer';
 export const CREATEGAME_ROUTE = '/creategame';
+export const SCORES_ROUTE = '/scores';
 
 
