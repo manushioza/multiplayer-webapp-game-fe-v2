@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "../Styles/Login.css";
-import { SHAPESORT_ROUTE } from "../Constants/routes";
+import { SHAPESORT_ROUTE, GAME1_ROUTE } from "../Constants/routes";
 
 function MainStory2() {
    const navigate = useNavigate();
@@ -17,7 +17,7 @@ function MainStory2() {
           type="button"
           class="btn mainstory1-btn--continue"
           //THIS WILL BE CHANGED TO DIFFERENT GAME
-          onClick={() => navigate(SHAPESORT_ROUTE)}
+          onClick={() => navigate(GAME1_ROUTE)}
          //  onClick={loginUser}
         >
           Click to wake up...
