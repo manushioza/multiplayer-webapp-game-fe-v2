@@ -43,7 +43,7 @@ function Multiplayer() {
           sessionStorage.setItem("sessionID", session_id);
           sessionStorage.setItem("playerID", 1);   
           join(sessionStorage.getItem("sessionID"), sessionStorage.getItem("playerID"));
-          navigate(M);
+          navigate(MAINSTORY1_ROUTE);
         } else {
           console.log("Unable to add session");
         }
