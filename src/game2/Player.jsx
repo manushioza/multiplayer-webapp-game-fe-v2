@@ -150,7 +150,7 @@ function gameOver(score) {
     <div>
       <h2>Game Over!</h2>
       <p>Your Score: ${score}</p>
-      <button class="btn btn-danger mt-2" onClick={() => navigate(SCORES_ROUTE)}>Next</button>
+      <button class="btn btn-danger mt-2" onClick="location.href = '/game3'">Next</button>
     </div>
   </div>  
   `;

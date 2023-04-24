@@ -20,6 +20,8 @@ const cardImg = [
   { src: alien, matched: false },
   { src: sword, matched: false },
 ];
+var matched_pairs = 0;
+var max_pairs = 6;
 
 function FlipCard() {
   const [cards, setCards] = useState([]);
@@ -28,8 +30,6 @@ function FlipCard() {
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
-  var matched_pairs = 0;
-  var max_pairs = 6;
 
 
 
@@ -55,7 +55,8 @@ function FlipCard() {
     if (choiceOne && choiceTwo) {
       setDisabled(true);
       if (choiceOne.src === choiceTwo.src) {
-        matched_pairs += 1;
+        matched_pairs = matched_pairs + 1;
+        console.log(matched_pairs)
         setCards((prevCards) => {
           return prevCards.map((card) => {
             if (card.src === choiceOne.src) {
@@ -137,7 +138,7 @@ function FlipCard() {
                         <button
                             type="button"
                             className="btn jigsaw-btn--continue"
-                            onClick={(event) => (window.location.href =SHAPESORT_ROUTE)}
+                            onClick={() => (window.location.href = SHAPESORT_ROUTE)}
                         >
                             Continue
                         </button>
