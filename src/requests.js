@@ -18,7 +18,7 @@ async function login(email, password) {
 }
 
 //REGISTER FUNCTION
-async function register(email, password, username) {
+async function register(email, username, password) {
   console.log("Attempting to register....");
   const response = await axios.post(`${BASE_URL}/auth/register`, {
     username,
