@@ -137,7 +137,7 @@ function FlipCard() {
                         <button
                             type="button"
                             className="btn jigsaw-btn--continue"
-                            onClick={() => navigate(SHAPESORT_ROUTE)}
+                            onClick={(event) => (window.location.href =SHAPESORT_ROUTE)}
                         >
                             Continue
                         </button>
