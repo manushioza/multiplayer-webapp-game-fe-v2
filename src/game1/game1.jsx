@@ -272,7 +272,7 @@ class game1 extends Component {
             <h2>Game Over</h2>
             <p>Your score was {score}!</p>
             <button onClick={(event) => (window.location.href = GAME2_ROUTE)}>
-              Play Again
+              Next
             </button>
           </div>
         )}

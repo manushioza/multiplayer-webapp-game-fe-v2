@@ -1,6 +1,7 @@
 import img from './photos/player.png'
 import "../Styles/game2.css"
 import {emit_score_game2, get_score_game2} from '../Socket/ClientManager';
+import { SHAPESORT_ROUTE} from '../Constants/routes'
 
 export class Player {
   dead = false;
@@ -149,7 +150,7 @@ function gameOver(score) {
     <div>
       <h2>Game Over!</h2>
       <p>Your Score: ${score}</p>
-      <button class="btn btn-danger mt-2" onClick="location.reload()">Play Again</button>
+      <button class="btn btn-danger mt-2" onClick={() => navigate(SCORES_ROUTE)}>Next</button>
     </div>
   </div>  
   `;
