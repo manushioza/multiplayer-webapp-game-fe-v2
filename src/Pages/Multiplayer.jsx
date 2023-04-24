@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import Modal from "react-bootstrap/Modal";
 import "../Styles/Login.css";
-import { HOME_ROUTE, REGISTER_ROUTE, GAME1_ROUTE } from "../Constants/routes";
+import { HOME_ROUTE, REGISTER_ROUTE, GAME1_ROUTE, MAINSTORY1_ROUTE } from "../Constants/routes";
 import { addSession } from "../requests";
 import { inititaize, join } from "../Socket/ClientManager";
 
@@ -43,7 +43,7 @@ function Multiplayer() {
           sessionStorage.setItem("sessionID", session_id);
           sessionStorage.setItem("playerID", 1);   
           join(sessionStorage.getItem("sessionID"), sessionStorage.getItem("playerID"));
-          navigate(GAME1_ROUTE);
+          navigate(MAINSTORY1_ROUTE);
         } else {
           console.log("Unable to add session");
         }
@@ -65,7 +65,7 @@ function Multiplayer() {
       try {
         sessionStorage.setItem("playerID", 2);
         const res = await join(id, sessionStorage.getItem("playerID"));
-        navigate(GAME1_ROUTE);
+        navigate(MAINSTORY1_ROUTE);
       } catch (error) {
         console.log("error", error);
       }
